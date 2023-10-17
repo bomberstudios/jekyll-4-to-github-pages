@@ -1,7 +1,8 @@
 # Site data
-title: PROJECT_NAME
+title: Jekyll 4 to GitHub Pages
+theme: jekyll-theme-cayman
 description: 'Project description'
-url: 'https://PROJECT_URL'
+url: 'https://bomberstudios.github.io/jekyll-4-to-github-pages/'
 permalink: /:title
 copyright: '©️ 2023 Your Name'
 
