@@ -1,0 +1,53 @@
+# Site data
+title: PROJECT_NAME
+description: 'Project description'
+url: 'https://PROJECT_URL'
+permalink: /:title
+copyright: '©️ 2023 Your Name'
+
+
+# Your personal data
+author:
+  name: Your Name
+  email: your@email.com
+  twitter: https://twitter.com/handle
+  mastodon: https://mastodon.online/@handle
+  github: https://github.com/handle
+
+# Build settings
+markdown: kramdown
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Defaults
+defaults:
+  - scope:
+      path: '' # an empty string here means all files in the project
+      type: 'posts' # previously `post` in Jekyll 2.2.
+    values:
+      layout: 'post'
+
+show_excerpts: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+header_pages:
+  - about.md
+
+paginate: 10
+paginate_path: "/page/:num/"
+
+include:
+  - '.well-known'
+  - '_redirects'
+
+exclude:
+  - docker-compose.yml
+  - README.md

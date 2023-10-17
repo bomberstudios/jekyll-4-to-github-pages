@@ -1,0 +1,251 @@
+---
+---
+@charset "utf-8";
+
+:root {
+  --brand: #f60;
+  --text-color: #333;
+  --quote-color: #666;
+  --quote-bg: #f4f4f4;
+  --bg-color: #fff;
+  --subtle: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: rgb(199, 102, 4);
+    --text-color: #aaa;
+    --quote-color: #777;
+    --quote-bg: #111;
+    --bg-color: #222;
+    --subtle: #363636;
+  }
+}
+
+// Syntax highlighting styles: comment out if you'll publish code in your site
+// @import "highlight.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  // From https://modernfontstacks.com/
+  // Default System Typeface
+  font-family: system-ui, sans-serif;
+  // Transitional
+  // font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-size: 1.1em;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  // display: flex;
+  // flex-direction: column;
+  min-height: 100vh;
+
+  /* Code Blocks */
+  word-wrap: break-word; /* force long words to break */
+  overflow-wrap: break-word; /* newer syntax standard that replaces word-wrap */
+  main {
+    flex: 1;
+  }
+  a {
+    color: var(--brand);
+  }
+  img {
+    width: 100%;
+    border-radius: 0.4em;
+    box-shadow: 0 10px 20px var(--subtle);
+  }
+  img.site-header {
+    width: 400px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+main {
+  padding: 0 2em;
+}
+main,
+header nav div {
+  margin: 0 auto;
+  max-width: 40em;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  margin-top: 1em;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+// Icon for external links:
+a[href^="http"]::after,
+a[href^="https://"]::after
+{
+  content: "";
+  width: 0.7em;
+  height: 0.7em;
+  margin-left: 0.3em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='var(--brand)' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+
+nav {
+  text-align: right;
+  background-color: var(--brand);
+  padding: 0.5em 1em;
+  margin-bottom: 2em;
+  a {
+    color: var(--bg-color);
+  }
+}
+main a:hover {
+  color: var(--bg-color);
+  background-color: var(--brand);
+  // text-decoration: none;
+}
+
+hr {
+  margin: 2em 0;
+  border: none;
+  border-top: 1px solid var(--subtle);
+}
+
+h1.post-title,
+.post-list h3,
+.post-list h3 .post-link {
+  font-weight: 900;
+  font-size: 2.5rem;
+  line-height: 1.1em;
+}
+h1.post-title,
+.post-list h3 .post-link {
+  color: var(--brand);
+}
+h1.post-title {
+  margin: 0;
+}
+article p.post-meta {
+  margin: 0;
+}
+article li {
+  list-style: square;
+  margin: 0 0 0.3em 2em;
+}
+.post-list h3 .post-link:hover {
+  color: var(--bg-color);
+  background-color: var(--brand);
+}
+.post-list {
+  &> li {
+    margin-bottom: 1.5em;
+  }
+  h3 {
+    margin: 0;
+    display: block;
+  }
+}
+.post-meta {
+  color: var(--quote-color);
+}
+
+.post-nav {
+  display: flex;
+  margin: 3em 0;
+}
+.post-nav div {
+  flex: 1 1 0;
+}
+.post-nav-next {
+  text-align: right;
+}
+
+blockquote {
+  font-weight: 200;
+  color: var(--quote-color);
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1em;
+  background-color: var(--quote-bg);
+  border-left: 2px solid var(--quote-color);
+  p {
+    margin: 0;
+  }
+  em {
+    font-style: normal;
+  }
+}
+
+.logo {
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 2em 0;
+  circle {
+    fill: var(--brand);
+  }
+  &:hover {
+    background-color: var(--brand);
+    circle {
+      fill: var(--bg-color);
+    }
+  }
+}
+
+.footnotes {
+  font-size: 0.9em;
+  margin-top: 3em;
+  border-top: 1px solid var(--subtle);
+  padding-top: 1em;
+}
+
+footer {
+  margin-top: 4em;
+  font-size: 0.8em;
+  padding: 1em;
+  color: var(--quote-color);
+  // background-color: var(--quote-bg);
+  text-align: center;
+}
+
+/* Code Blocks */
+code,
+pre,
+samp {
+  white-space: pre-wrap; /* force long lines to break */
+}
+pre {
+  margin: 0;
+}
+div.highlighter-rouge {
+  background: #eee;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.page-link {
+  margin-left: 1em;
+}
+
+.pagination {
+  text-align: center;
+  .previous {
+    float: left;
+  }
+  .next {
+    float: right;
+  }
+}
+
+.post-content {
+  h2 {
+    margin: 0;
+    margin-top: 1em;
+    margin-bottom: -0.3em;
+  }
+}
